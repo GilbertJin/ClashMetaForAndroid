@@ -6,13 +6,13 @@ import (
 
 	"github.com/dlclark/regexp2"
 
-	"github.com/Dreamacro/clash/adapter"
+	"github.com/metacubex/mihomo/adapter"
 
-	"github.com/Dreamacro/clash/adapter/outboundgroup"
-	C "github.com/Dreamacro/clash/constant"
-	"github.com/Dreamacro/clash/constant/provider"
-	"github.com/Dreamacro/clash/log"
-	"github.com/Dreamacro/clash/tunnel"
+	"github.com/metacubex/mihomo/adapter/outboundgroup"
+	C "github.com/metacubex/mihomo/constant"
+	"github.com/metacubex/mihomo/constant/provider"
+	"github.com/metacubex/mihomo/log"
+	"github.com/metacubex/mihomo/tunnel"
 )
 
 type SortMode int
@@ -96,8 +96,8 @@ func QueryProxyGroup(name string, sortMode SortMode, uiSubtitlePattern *regexp2.
 		return nil
 	}
 
- 	proxies := convertProxies(g.Proxies(), uiSubtitlePattern)
-// 	proxies := collectProviders(g.Providers(), uiSubtitlePattern)
+	proxies := convertProxies(g.Proxies(), uiSubtitlePattern)
+	// 	proxies := collectProviders(g.Providers(), uiSubtitlePattern)
 
 	switch sortMode {
 	case Title:
@@ -187,7 +187,7 @@ func convertProxies(proxies []C.Proxy, uiSubtitlePattern *regexp2.Regexp) []*Pro
 			Title:    strings.TrimSpace(title),
 			Subtitle: strings.TrimSpace(subtitle),
 			Type:     p.Type().String(),
-			Delay:    int(p.LastDelay()),
+			Delay:    int(p.DelayHistory()[len(p.DelayHistory())-1].Delay),
 		})
 	}
 	return result
@@ -218,7 +218,7 @@ func collectProviders(providers []provider.ProxyProvider, uiSubtitlePattern *reg
 				Title:    strings.TrimSpace(title),
 				Subtitle: strings.TrimSpace(subtitle),
 				Type:     px.Type().String(),
-				Delay:    int(px.LastDelay()),
+				Delay:    int(px.DelayHistory()[len(px.DelayHistory())-1].Delay),
 			})
 		}
 	}

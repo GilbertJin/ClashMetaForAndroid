@@ -4,17 +4,18 @@ import (
 	"encoding/binary"
 	"io"
 	"net"
+	"net/netip"
 	"os"
 	"time"
 
 	"github.com/Kr328/tun2socket"
 
-	"github.com/Dreamacro/clash/adapter/inbound"
-	"github.com/Dreamacro/clash/common/pool"
-	C "github.com/Dreamacro/clash/constant"
-	"github.com/Dreamacro/clash/log"
-	"github.com/Dreamacro/clash/transport/socks5"
-	"github.com/Dreamacro/clash/tunnel"
+	"github.com/metacubex/mihomo/adapter/inbound"
+	"github.com/metacubex/mihomo/common/pool"
+	C "github.com/metacubex/mihomo/constant"
+	"github.com/metacubex/mihomo/log"
+	"github.com/metacubex/mihomo/transport/socks5"
+	"github.com/metacubex/mihomo/tunnel"
 )
 
 var _, ipv4LoopBack, _ = net.ParseCIDR("127.0.0.0/8")
@@ -24,14 +25,17 @@ func Start(fd int, gateway, portal, dns string) (io.Closer, error) {
 
 	device := os.NewFile(uintptr(fd), "/dev/tun")
 
-	ip, network, err := net.ParseCIDR(gateway)
+	tunPortal, err := netip.ParseAddr(portal)
 	if err != nil {
 		panic(err.Error())
-	} else {
-		network.IP = ip
 	}
 
-	stack, err := tun2socket.StartTun2Socket(device, network, net.ParseIP(portal))
+	tunPrefix, err := netip.ParsePrefix(gateway)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	stack, err := tun2socket.StartTun2Socket(device, tunPrefix, tunPortal)
 	if err != nil {
 		_ = device.Close()
 

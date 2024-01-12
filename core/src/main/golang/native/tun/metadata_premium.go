@@ -4,24 +4,18 @@ package tun
 
 import (
 	"net"
-	"net/netip"
-	"strconv"
 
-	C "github.com/Dreamacro/clash/constant"
+	C "github.com/metacubex/mihomo/constant"
 )
 
 func createMetadata(lAddr, rAddr *net.TCPAddr) *C.Metadata {
-	srcAddr, _ := netip.AddrFromSlice(lAddr.IP)
-	dstAddr, _ := netip.AddrFromSlice(rAddr.IP)
-
 	return &C.Metadata{
 		NetWork:    C.TCP,
 		Type:       C.SOCKS5,
-		SrcIP:      srcAddr,
-		DstIP:      dstAddr,
-		SrcPort:    strconv.Itoa(lAddr.Port),
-		DstPort:    strconv.Itoa(rAddr.Port),
-		AddrType:   C.AtypIPv4,
+		SrcIP:      lAddr.AddrPort().Addr(),
+		DstIP:      rAddr.AddrPort().Addr(),
+		SrcPort:    uint16(lAddr.Port),
+		DstPort:    uint16(rAddr.Port),
 		Host:       "",
 		RawSrcAddr: lAddr,
 		RawDstAddr: rAddr,
