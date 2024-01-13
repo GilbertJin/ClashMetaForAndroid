@@ -2,6 +2,7 @@
 build/
 /app/foss/release
 /app/premium/release
+/app/meta-alpha/release
 /captures
 
 # Ignore Gradle GUI config
@@ -65,4 +66,3 @@ google-services.json
 # MacOS
 .DS_Store
 LUI
-keystore.properties

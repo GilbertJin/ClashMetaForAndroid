@@ -1,10 +1,10 @@
 ## Clash Meta for Android
 
-A Graphical user interface of [mihomo](https://github.com/MetaCubeX/mihomo) for Android
+A Graphical user interface of [Mihomo](https://github.com/MetaCubeX/mihomo) for Android
 
 ### Feature
 
-Feature of [mihomo](https://github.com/MetaCubeX/mihomo)
+Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
 
 <!-- [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
@@ -64,7 +64,7 @@ APP package name is `com.github.metacubex.clash.meta`
 
 #### Meta Kernel
 
-- CMFA uses the kernel from `android-real` branch under `MetaCubeX/mihomo`, which is a merge of the main `Alpha` branch and `android-open`.
+- CMFA uses the kernel from `Meta` branch under `MetaCubeX/mihomo`, which is a merge of the main `Alpha` branch.
   - If you want to contribute to the kernel, make PRs to `Alpha` branch of the Meta kernel repository.
   - If you want to contribute Android-specific patches to the kernel, make PRs to  `android-open` branch of the Meta kernel repository.
 <!-- 
