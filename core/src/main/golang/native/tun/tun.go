@@ -4,7 +4,6 @@ import (
 	"encoding/binary"
 	"io"
 	"net"
-	"net/netip"
 	"os"
 	"time"
 
@@ -25,17 +24,14 @@ func Start(fd int, gateway, portal, dns string) (io.Closer, error) {
 
 	device := os.NewFile(uintptr(fd), "/dev/tun")
 
-	tunPortal, err := netip.ParseAddr(portal)
+	ip, network, err := net.ParseCIDR(gateway)
 	if err != nil {
 		panic(err.Error())
+	} else {
+		network.IP = ip
 	}
 
-	tunPrefix, err := netip.ParsePrefix(gateway)
-	if err != nil {
-		panic(err.Error())
-	}
-
-	stack, err := tun2socket.StartTun2Socket(device, tunPrefix, tunPortal)
+	stack, err := tun2socket.StartTun2Socket(device, network, net.ParseIP(portal))
 	if err != nil {
 		_ = device.Close()
 
