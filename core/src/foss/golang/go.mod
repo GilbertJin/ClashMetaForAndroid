@@ -6,8 +6,6 @@ toolchain go1.21.5
 
 require cfa v0.0.0
 
-require github.com/metacubex/mihomo v1.7.0 // indirect
-
 require cfa/blob v0.0.0-00010101000000-000000000000 // indirect
 
 require (
@@ -51,6 +49,7 @@ require (
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
 	github.com/metacubex/gvisor v0.0.0-20231209122014-3e43224c7bbc // indirect
+	github.com/metacubex/mihomo v1.7.0 // indirect
 	github.com/metacubex/quic-go v0.41.1-0.20240120014142-a02f4a533d4a // indirect
 	github.com/metacubex/sing-quic v0.0.0-20240120014430-9838ce4bbc41 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.6 // indirect
