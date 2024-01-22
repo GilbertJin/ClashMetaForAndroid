@@ -1,8 +1,8 @@
-## Clash Meta for Android
+# Clash Meta for Android
 
 A Graphical user interface of [Mihomo](https://github.com/MetaCubeX/mihomo) for Android
 
-### Feature
+## Feature
 
 Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
 
@@ -10,13 +10,13 @@ Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
      alt="Get it on F-Droid"
      height="80">](https://f-droid.org/packages/com.github.metacubex.clash.meta/) -->
 
-### Requirement
+## Requirement
 
 - Android 5.0+ (minimum)
 - Android 7.0+ (recommend)
 - `armeabi-v7a` , `arm64-v8a`, `x86` or `x86_64` Architecture
 
-### Build
+## Build
 
 1. Update submodules
 
@@ -47,7 +47,7 @@ Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
    ./gradlew app:assembleMeta-AlphaRelease
    ```
 
-### Automation
+## Automation
 
 APP package name is `com.github.metacubex.clash.meta`
 
@@ -60,15 +60,16 @@ APP package name is `com.github.metacubex.clash.meta`
 - Import a profile
   - URL Scheme `clash://install-config?url=<encoded URI>` or `clashmeta://install-config?url=<encoded URI>`
 
-### Contribution and Project Maintainance
+## Contribution and Project Maintainance
 
-#### Meta Kernel
+### Meta Kernel
 
-- CMFA uses the kernel from `Meta` branch under `MetaCubeX/mihomo`, which is a merge of the main `Alpha` branch.
+- CMFA (currently in this repository) uses the kernel from `Alpha` branch under `MetaCubeX/mihomo`, which is the main branch.
   - If you want to contribute to the kernel, make PRs to `Alpha` branch of the Meta kernel repository.
   - If you want to contribute Android-specific patches to the kernel, make PRs to  `android-open` branch of the Meta kernel repository.
-<!-- 
-#### Maintainance
+  - `android-real` branch under `MetaCubeX/mihomo` is a merge of the main `Alpha` branch and `android-open`.
+
+### Maintainance
 
 - When `MetaCubeX/mihomo` kernel is updated to a new version, the `Update Dependencies` actions in this repo will be triggered automatically.
   - It will pull the new version of the meta kernel, update all the golang dependencies, and create a PR without manual intervention.
@@ -76,4 +77,4 @@ APP package name is `com.github.metacubex.clash.meta`
 - Manually triggering `Build Pre-Release` actions will compile and publish a `PreRelease` version.
 - Manually triggering `Build Release` actions will compile, tag and publish a `Release` version.
   - You must fill the blank `Release Tag` with the tag you want to release in the format of `v1.2.3`.
-  - `versionName` and `versionCode` in `build.gradle.kts` will be automatically bumped to the tag you filled above. -->
+  - `versionName` and `versionCode` in `build.gradle.kts` will be automatically bumped to the tag you filled above.
