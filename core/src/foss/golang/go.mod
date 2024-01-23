@@ -1,8 +1,6 @@
 module foss
 
-go 1.21
-
-toolchain go1.21.5
+go 1.20
 
 require cfa v0.0.0
 

@@ -24,7 +24,7 @@ Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
    git submodule update --init --recursive
    ```
 
-2. Install **OpenJDK 11**, **Android SDK**, **CMake** and **Golang**
+2. Install **Azul Zulu Builds of OpenJDK 17**, **Android SDK (API 31)**, **CMake** and **Golang 1.20**
 
 3. Create `local.properties` in project root with
 
@@ -44,6 +44,7 @@ Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
 5. Build
 
    ```bash
+   ./gradlew clean # if you are running a second build
    ./gradlew app:assembleMeta-AlphaRelease
    ```
 
