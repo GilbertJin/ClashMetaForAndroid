@@ -109,13 +109,6 @@ task("downloadGeoipDatabase") {
 afterEvaluate {
     val downloadTask = tasks["downloadGeoipDatabase"]
 
-    // val file = file("src/foss/golang/clash/dns/patch_android.go")
-    // val originalContent = file.readText()
-    // val searchString = "lruCache"
-    // val replacementString = "cache"
-    // val modifiedContent = originalContent.replace(searchString, replacementString)
-    // file.writeText(modifiedContent)
-
     tasks.forEach {
         if (it.name.startsWith("externalGolangBuild")) {
             it.dependsOn(downloadTask)
