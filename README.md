@@ -44,9 +44,14 @@ Feature of [Mihomo](https://github.com/MetaCubeX/mihomo)
 5. Build
 
    ```bash
-   ./gradlew clean # if you are running a second build
+   # if the version of mihomo changed and you are running a second build
+   rm -r ./core/.cxx
+   rm ./core/src/main/cpp/version.h
+   # build signed meta-alpha release apk
    ./gradlew app:assembleMeta-AlphaRelease
    ```
+
+The desired `apk`s of the build should be in `./app/build/outputs/apk/meta-alpha/release/`.
 
 ## Automation
 
