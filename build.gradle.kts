@@ -9,7 +9,7 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven("https://raw.githubusercontent.com/MetaCubeX/maven-backup/main/releases")
+        maven("https://maven.kr328.app/releases")
     }
     dependencies {
         classpath(libs.build.android)
@@ -24,7 +24,7 @@ subprojects {
     repositories {
         mavenCentral()
         google()
-        maven("https://raw.githubusercontent.com/MetaCubeX/maven-backup/main/releases")
+        maven("https://maven.kr328.app/releases")
     }
 
     val isApp = name == "app"
@@ -41,7 +41,7 @@ subprojects {
             targetSdk = 31
 
             versionName = "2.10.1"
-            versionCode = 210100
+            versionCode = 210001
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
